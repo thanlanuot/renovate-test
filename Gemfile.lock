@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    connection_pool (2.4.1)
+    nio4r (2.5.9)
+    puma (6.2.1)
+      nio4r (~> 2.0)
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
+    redis-client (0.14.1)
+      connection_pool
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  puma
+  redis (>= 4)
+
+RUBY VERSION
+   ruby 3.2.2p53
+
+BUNDLED WITH
+   2.4.10
