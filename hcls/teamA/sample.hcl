@@ -1,6 +1,6 @@
 job "dummy-server" {
   meta {
-    image_tag = "3.9"
+    image_tag = "36.27"
   }
 
   type = "service"
@@ -12,7 +12,7 @@ job "dummy-server" {
       driver = "docker"
 
       config {
-        image = "python:${NOMAD_META_image_tag}"
+        image = "renovate/renovate:${NOMAD_META_image_tag}"
       }
 
       logs {
