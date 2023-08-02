@@ -1,5 +1,14 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "rangeStrategy": "update-lockfile",
-    "dependencyDashboard": true
+    "dependencyDashboard": true,
+    "regexManagers": [
+        {
+          "fileMatch": ["*.hcl$"],
+          "matchStrings": ["image\\s*=\\s*\"([^\"]+):(\\$\\{NOMAD_META_image_tag\\})\"\\s*\\n\\s*meta\\s*{\\s*\\n\\s*image_tag\\s*=\\s*\"([^\"]+)\"\\s*\\n\\s*}"],
+          "groupName": "currentValue",
+          "currentValue": "$1$2:$3",
+          "datasourceTemplate": "docker"
+        }
+      ]
 }
