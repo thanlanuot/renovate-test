@@ -1,0 +1,2 @@
+buildkite_agent_version: 3.49.0
+buildkite_agent_tgz_url: https://github.com/buildkite/agent/releases/download/v{{ buildkite_agent_version }}/buildkite-agent-linux-amd64-{{ buildkite_agent_version }}.tar.gz

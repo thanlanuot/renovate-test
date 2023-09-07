@@ -9,6 +9,14 @@
         ],
         "datasourceTemplate": "docker",
         "versioningTemplate": "docker"
+      },
+      {
+        "fileMatch": ["config/main.yml"],
+        "matchStrings": [
+            "buildkite_agent_version:\\s(?<currentValue>.*)"
+        ],
+        "depNameTemplate": "buildkite/agent",
+        "datasourceTemplate": "github-releases"
       }
     ]
 }
