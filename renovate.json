@@ -1,22 +1,28 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [ "config:base" ],
-    "regexManagers": [
-      {
-        "fileMatch": [".*hcl$"],
-        "matchStrings": [
-            "image_tag\\s*=\\s*\"(?<currentValue>[^\"]+)\"[^}]*?}[^}]*?config\\s*{[^}]*?image\\s*=\\s*\"(?<depName>[^\"]+):"
-        ],
-        "datasourceTemplate": "docker",
-        "versioningTemplate": "docker"
-      },
-      {
-        "fileMatch": ["config/main.yml"],
-        "matchStrings": [
-            "buildkite_agent_version:\\s(?<currentValue>.*)"
-        ],
-        "depNameTemplate": "buildkite/agent",
-        "datasourceTemplate": "github-releases"
-      }
-    ]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [ "config:base" ],
+  "regexManagers": [
+    {
+      "fileMatch": [".*hcl$"],
+      "matchStrings": [
+          "image_tag\\s*=\\s*\"(?<currentValue>[^\"]+)\"[^}]*?}[^}]*?config\\s*{[^}]*?image\\s*=\\s*\"(?<depName>[^\"]+):"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
+    },
+    {
+      "fileMatch": ["config/main.yml"],
+      "matchStrings": [
+          "buildkite_agent_version:\\s(?<currentValue>.*)"
+      ],
+      "depNameTemplate": "buildkite/agent",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "packageRules": [
+    {
+      "packageNames": ["buildkite/agent"],
+      "extractVersion": "^v(?<version>.*)$"
+    }
+  ]
 }
