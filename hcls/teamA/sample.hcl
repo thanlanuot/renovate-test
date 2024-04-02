@@ -1,6 +1,6 @@
 job "dummy-server" {
   meta {
-    image_tag = "36.27"
+    image_tag = "36.109"
   }
 
   type = "service"
