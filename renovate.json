@@ -1,29 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "prConcurrentLimit": 20,
   "dependencyDashboard": true,
-  "extends": [ "config:base" ],
-  "regexManagers": [
-    {
-      "fileMatch": [".*hcl$"],
-      "matchStrings": [
-          "image_tag\\s*=\\s*\"(?<currentValue>[^\"]+)\"[^}]*?}[^}]*?config\\s*{[^}]*?image\\s*=\\s*\"(?<depName>[^\"]+):"
-      ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
-    },
-    {
-      "fileMatch": ["config/main.yml"],
-      "matchStrings": [
-          "buildkite_agent_version:\\s(?<currentValue>.*)"
-      ],
-      "depNameTemplate": "buildkite/agent",
-      "datasourceTemplate": "github-releases"
-    }
-  ],
-  "packageRules": [
-    {
-      "packageNames": ["buildkite/agent"],
-      "extractVersion": "^v(?<version>.*)$"
-    }
-  ]
+  "automerge": false,
+  "enabledManagers": ["buildkite", "bundler", "npm", "ruby-version", "nvm"],
+  "rebaseWhen": "conflicted",
+  "labels": ["dependencies"],
+  "timezone": "America/New_York",
+  "additionalBranchPrefix": "{{parentDir}}-"
 }
